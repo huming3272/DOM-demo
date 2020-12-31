@@ -25,10 +25,10 @@ window.dom = {
     /**/
     empty(node){
         const array = []
-        let x = node.firstChild
-        while(x){
+        let firstChild = node.firstChild
+        while(firstChild){
           array.push(dom.remove(node.firstChild))
-          x = node.firstChild
+          firstChild = node.firstChild
         }
         return array
       },
@@ -110,18 +110,18 @@ window.dom = {
         .filter(n=>n!==node)
       },
       next(node){
-        let x = node.nextSibling
-        while(x && x.nodeType === 3){
-          x = x.nextSibling
+        let nextSibling = node.nextSibling
+        while(nextSibling && nextSibling.nodeType === 3){
+          nextSibling = nextSibling.nextSibling
         }
-        return x
+        return nextSibling
       },
       previous(node){
-        let x = node.previousSibling
-        while(x && x.nodeType === 3){
-          x = x.previousSibling
+        let previousSibling = node.previousSibling
+        while(previousSibling && previousSibling.nodeType === 3){
+          previousSibling = previousSibling.previousSibling
         }
-        return x
+        return previousSibling
       },
       each(nodeList, fn){
         for(let i=0;i<nodeList.length;i++){
